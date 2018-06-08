@@ -1,0 +1,49 @@
+<section class="app-modify-object">
+  <mat-card *ngIf="selectedObject">
+    <mat-card-header>
+      <h1 class="title-text-style">{{modifyAction}}</h1>
+    </mat-card-header>
+    <mat-card-content>
+      <form [(formGroup)]="formObject">
+        <mat-card>
+          <mat-card-content fxLayoutWrap>
+            <mat-form-field fxFlex="100" class="full-width">
+              <input matInput placeholder="Name" required formControlName="name">
+            </mat-form-field>
+            <div *ngIf="formObject?.get('name')?.invalid && (formSpaceObject?.get('name')?.touched || formObject?.get('name')?.dirty)" class="error-text"
+                 fxFlex="100">
+              {{formObject?.get('name')?.errors?.nameError}}
+            </div>
+            <div fxFlex="100" fxLayoutAlign="space-between center">
+              <mat-form-field fxFlex="49">
+                <mat-select placeholder="Type" required formControlName="type" (selectionChange)="setType()">
+                  <mat-option *ngFor="let type of typeArray" [value]="type">
+                    {{ type }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div fxFlex="100" fxLayoutAlign="space-between center">
+              <mat-form-field fxFlex="100" class="full-width">
+                <input matInput placeholder="Price" required formControlName="price">
+              </mat-form-field>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="action-buttons">
+        <button mat-icon-button class="cancel-button" matTooltip="Cancel" (click)="cancelForm()">
+          <mat-icon>clear</mat-icon>
+        </button>
+        <button class="submit-button" matTooltip="Save" mat-icon-button
+                [disabled]="formObject.status == 'INVALID'"
+                (click)="submitForm()">
+          <mat-icon>check</mat-icon>
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</section>
+<app-spinner *ngIf="isDataLoading"></app-spinner>

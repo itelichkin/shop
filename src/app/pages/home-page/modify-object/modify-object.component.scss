@@ -1,0 +1,25 @@
+.app-modify-object {
+  .full-width {
+    width: 100%;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
+  .cancel-button {
+    color: #F44336;
+  }
+  .submit-button {
+    color: #4CAF50;
+  }
+
+  button:disabled {
+    color: #BDBDBD;
+  }
+
+  .error-text {
+    color: red;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+}
