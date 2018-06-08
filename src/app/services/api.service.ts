@@ -65,4 +65,20 @@ export class ApiService {
     return result.body ? JSON.parse(result.body) : null;
   }
 
+  async getPizzas(): Promise<any> {
+   const result = await this.httpClientService.get('/pizzas');
+    return result.body ? JSON.parse(result.body) : null;
+  }
+
+  async getSweets(): Promise<any> {
+    const result = await this.httpClientService.get('/sweets');
+    return result.body ? JSON.parse(result.body) : null;
+  }
+
+
+  async getIceCreams(): Promise<any> {
+    const result = await this.httpClientService.get('/ice-creams');
+    return result.body ? JSON.parse(result.body) : null;
+  }
+
 }

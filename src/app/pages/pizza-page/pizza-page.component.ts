@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'app-pizza-page',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PizzaPageComponent implements OnInit {
 
-  constructor() { }
+  allPizzas: any;
 
-  ngOnInit() {
+  constructor(private api: ApiService) {
+  }
+
+  async ngOnInit() {
+    this.allPizzas = await this.api.getPizzas();
+    this.allPizzas.forEach((x)=> {
+      if (!x.image) x['image'] = 'default_pizza';
+    });
   }
 
 }

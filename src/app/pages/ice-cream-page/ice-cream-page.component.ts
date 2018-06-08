@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'app-ice-cream-page',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ice-cream-page.component.scss']
 })
 export class IceCreamPageComponent implements OnInit {
+  allIceCreams: any;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private api: ApiService) {
   }
 
+  async ngOnInit() {
+    this.allIceCreams = await this.api.getIceCreams();
+    this.allIceCreams.forEach((x)=> {
+      if (!x.image) x['image'] = 'default_ice_cream';
+    });
+  }
 }

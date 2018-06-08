@@ -1,3 +1,11 @@
-<p>
-  pizza-page works!
-</p>
+<section class="app-pizza-page">
+  <div fxFlex="100" fxLayoutAlign="space-around center" fxLayout="row" class="data-container">
+    <mat-card *ngFor="let pizza of allPizzas" fxFlex="30">
+      <mat-card-content>
+        <p>{{pizza.name}}</p>
+        <img src="assets/{{pizza.image}}.jpg" alt="{{pizza.name}}">
+        <p>{{pizza.price}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>

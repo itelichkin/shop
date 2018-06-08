@@ -1,3 +1,11 @@
-<p>
-  sweets-page works!
-</p>
+<section class="app-sweets-page">
+  <div fxFlex="100" fxLayoutAlign="space-around center" fxLayout="row" class="data-container">
+    <mat-card *ngFor="let sweet of allSweets" fxFlex="30">
+      <mat-card-content>
+        <p>{{sweet.name}}</p>
+        <img src="assets/{{sweet.image}}.jpg" alt="{{sweet.name}}">
+        <p>{{sweet.price}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>

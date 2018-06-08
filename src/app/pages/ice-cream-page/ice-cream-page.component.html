@@ -1,3 +1,11 @@
-<p>
-  ice-cream-page works!
-</p>
+<section class="app-ice-cream-page">
+  <div fxFlex="100" fxLayoutAlign="space-around center" fxLayout="row" class="data-container">
+    <mat-card *ngFor="let ice of allIceCreams" fxFlex="30">
+      <mat-card-content>
+        <p>{{ice.name}}</p>
+        <img src="assets/{{ice.image}}.jpg" alt="{{ice.name}}">
+        <p>{{ice.price}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>
