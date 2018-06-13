@@ -3,7 +3,7 @@ import {HeadersService} from './headers.service';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 
-export interface ObservatoryHttpRequestOptions {
+export interface HttpRequestOptions {
   method: string;
   url: string;
   data?;
@@ -43,7 +43,7 @@ export class HttpClientService {
     return a.length ? ('?' + a.join('&')) : '';
   }
 
-  private request(options: ObservatoryHttpRequestOptions) {
+  private request(options: HttpRequestOptions) {
 
     const promise = new Promise<any>((resolve) => {
       this.compileRequest(options).subscribe((value) => {

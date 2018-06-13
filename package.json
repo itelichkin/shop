@@ -70,9 +70,5 @@
   "engines": {
     "node": "10.2.0",
     "npm": "5.6.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/itelichkin/shop"
   }
 }
